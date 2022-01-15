@@ -1,17 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Home/>
+    <Airports/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import Home from "@/components/Home";
+import Airports from "@/components/Airports";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Airports,
+    Home,
+  },
+  data() {
+    return {
+      someRandomText: "Random"
+    }
   }
 }
 </script>
