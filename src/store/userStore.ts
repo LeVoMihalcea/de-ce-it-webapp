@@ -1,12 +1,30 @@
 export default {
     namespaced: true,
     state: {
-        firstName: 'John',
-        lastName: 'Doe'
+        username: null,
+        teamName: null
     },
     getters: {
         fullName: function (state) {
-            return `${state.firstName} ${state.lastName}`
+            if(state.username != null && state.teamName != null){
+                return `${state.username}@${state.teamName}`
+            }
+            return "";
         }
-    }
+    },
+    mutations: {
+        UPDATE_USERNAME(state, payload) {
+            state.username = payload
+        },
+
+        UPDATE_TEAM_NAME(state, payload) {
+            state.teamName = payload
+        }
+    },
+    actions: {
+        registerTeam(context, payload) {
+            context.commit('UPDATE_USERNAME', payload.username)
+            context.commit('UPDATE_TEAM_NAME', payload.teamName);
+        }
+    },
 }
