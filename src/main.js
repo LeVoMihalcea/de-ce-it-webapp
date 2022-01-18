@@ -1,6 +1,7 @@
 import {createApp} from 'vue'
 import App from './App.vue'
 import PrimeVue from 'primevue/config';
+import axios from "axios";
 import {createRouter, createWebHistory} from 'vue-router'
 
 import 'primevue/resources/themes/md-dark-indigo/theme.css'
@@ -12,15 +13,31 @@ import Button from "primevue/button";
 import InputText from "primevue/inputtext";
 import Menubar from 'primevue/menubar';
 import Card from 'primevue/card';
+import DataTable from "primevue/datatable";
+import Column from "primevue/column";
+import Dropdown from "primevue/dropdown";
 
 import store from '@/store/index.ts'
 import Home from "@/components/Home";
 import TeamRegistration from "@/components/TeamRegistration";
-import axios from "axios";
+import Wikipedia from "@/components/Wikipedia";
+import AdminDashboard from "@/components/AdminDashboard";
+import WikipediaAdmin from "@/components/WikipediaAdmin";
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/teams', component: TeamRegistration },
+    {path: '/', component: Home},
+    {path: '/teams', component: TeamRegistration},
+    {path: '/wikipedia', component: Wikipedia},
+    {
+        path: '/sigma', component: AdminDashboard,
+        children: [
+            {
+                path: 'wikipedia',
+                component: WikipediaAdmin
+            },
+        ]
+    },
+
 ]
 
 const router = createRouter({
@@ -40,5 +57,9 @@ app.component('Button', Button);
 app.component('InputText', InputText);
 app.component('Menubar', Menubar)
 app.component("Card", Card);
+app.component("DataTable", DataTable);
+app.component("Column", Column);
+app.component("Dropdown", Dropdown);
+
 
 app.mount('#app');

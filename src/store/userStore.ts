@@ -10,6 +10,9 @@ export default {
                 return `${state.username}@${state.teamName}`
             }
             return "";
+        },
+        username: function (state){
+            return state.username;
         }
     },
     mutations: {

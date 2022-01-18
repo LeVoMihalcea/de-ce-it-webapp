@@ -2,7 +2,7 @@
   <div>
     <Menubar :model="items">
       <template #start>
-        <div class="padding-right-needed" @click="goHome()">
+        <div class="padding-right-needed" @click="navigateTo('/')">
           De ce IT?
         </div>
       </template>
@@ -24,12 +24,14 @@ export default {
     return {
       items: [
         {
-          label: 'File',
-          icon: 'pi pi-fw pi-file'
+          label: 'Wikipedia',
+          icon: 'pi pi-book',
+          command: () => this.navigateTo('/wikipedia')
         },
         {
-
-          separator: true
+          label: 'Sigma',
+          icon: 'pi pi-cog',
+          command: () => this.navigateTo('/sigma')
         },
         {
           label: 'Log Out',
@@ -41,14 +43,14 @@ export default {
   }
   ,
   methods: {
-    goHome() {
-      this.$router.push('/')
-    },
-
     logOut() {
       localStorage.setItem('username', null);
       localStorage.setItem('teamName', null);
       this.$store.dispatch('user/registerTeam', {username: null, teamName: null});
+    },
+
+    navigateTo(path){
+      this.$router.push(path);
     }
   }
   ,
@@ -57,7 +59,7 @@ export default {
     const teamName = localStorage.getItem('teamName');
 
     if(username !== "null" && teamName !== "null") this.$store.dispatch('user/registerTeam', {username, teamName});
-  }
+  },
 }
 </script>
 
