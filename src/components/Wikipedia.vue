@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     connect() {
-      this.socket = new SockJS("http://localhost:8080/wikipedia");
+      this.socket = new SockJS(process.env.VUE_APP_TARGET + "/wikipedia");
       this.stompClient = Stomp.over(this.socket);
       this.stompClient.connect(
           {},
