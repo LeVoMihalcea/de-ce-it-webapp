@@ -47,7 +47,9 @@ const router = createRouter({
 
 const app = createApp(App)
 
-axios.defaults.baseURL = "http://192.168.0.122:8080/v1"
+axios.defaults.baseURL = process.env.VUE_APP_TARGET
+
+console.log("Sending requests to: " + axios.defaults.baseURL);
 
 app.use(PrimeVue);
 app.use(store);
