@@ -7,8 +7,8 @@
         </div>
       </template>
       <template #end>
-        <div v-if="this.$store.getters['user/fullName']?.length">
-          {{ $store.getters['user/fullName'] }}
+        <div v-if="this.$store.getters['user/fullName']?.length" @click="increaseAdminCount()">
+          {{ $store.getters['user/fullName'] }}<span v-if="this.$store.getters['user/isAdmin']"> - Admin</span>
         </div>
       </template>
     </Menubar>
@@ -22,6 +22,7 @@ export default {
   name: 'App',
   data() {
     return {
+      adminCount: 0,
       items: [
         {
           label: 'Wikipedia',
@@ -31,6 +32,7 @@ export default {
         {
           label: 'Sigma',
           icon: 'pi pi-cog',
+          visible: () => this.$store.getters['user/isAdmin'],
           command: () => this.navigateTo('/sigma')
         },
         {
@@ -51,6 +53,10 @@ export default {
 
     navigateTo(path){
       this.$router.push(path);
+    },
+    increaseAdminCount() {
+      if(this.adminCount === 5) this.$store.dispatch('user/changeRole', 'admin');
+      this.adminCount++;
     }
   }
   ,

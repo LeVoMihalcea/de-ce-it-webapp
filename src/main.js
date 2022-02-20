@@ -47,7 +47,7 @@ const router = createRouter({
 
 const app = createApp(App)
 
-axios.defaults.baseURL = "http://localhost:8080/v1"
+axios.defaults.baseURL = "http://192.168.0.122:8080/v1"
 
 app.use(PrimeVue);
 app.use(store);
@@ -61,5 +61,9 @@ app.component("DataTable", DataTable);
 app.component("Column", Column);
 app.component("Dropdown", Dropdown);
 
+router.beforeEach((to, from, next) => {
+    if (store.getters['user/isAdmin']) next({ name: 'Sigma' })
+    else next()
+})
 
 app.mount('#app');

@@ -37,6 +37,15 @@ export default {
       selectedChallenge: null
     }
   },
+  beforeEnter(to, from, next) {
+    if (this.$store.getters["user/isAdmin"]) {
+      next()
+    } else {
+      next({
+        name: "Home" // back to safety route //
+      });
+    }
+  }
 }
 </script>
 
