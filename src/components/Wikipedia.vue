@@ -78,7 +78,7 @@ export default {
       this.end = new Date();
       const delta = this.end - this.start;
       console.log(delta);
-      this.stompClient.send('/wikipediaPress', JSON.stringify({from: this.$store.getters['user/username'], ms: delta}));
+      this.stompClient.send('/ws/wikipediaPress', JSON.stringify({from: this.$store.getters['user/username'], ms: delta}));
     }
   },
   mounted() {
