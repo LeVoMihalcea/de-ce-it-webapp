@@ -3,7 +3,7 @@
     <Menubar :model="items">
       <template #start>
         <div class="padding-right-needed" @click="navigateTo('/')">
-          De ce IT?
+          <img class="logo" src="logo%20doar%20porc.jpg">
         </div>
       </template>
       <template #end>
@@ -87,7 +87,8 @@ body {
 }
 
 .logo {
-  max-height: 40px;
+  max-height: 80px;
+  border-radius: 25px;
 }
 
 .padding-right-needed {

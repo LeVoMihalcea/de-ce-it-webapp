@@ -8,7 +8,9 @@
         Bun venit la De Ce IT?
       </template>
       <template #content>
-
+        What type of music should you listen to whilst fishing?
+        <br><br>
+        Something catchy.
       </template>
       <template #footer>
         <Button class="button" v-if="shouldShowRegistrationButton()" label="Inscriere" @click="goToRegistration()"/>
