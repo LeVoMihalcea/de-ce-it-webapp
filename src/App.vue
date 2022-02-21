@@ -30,6 +30,11 @@ export default {
           command: () => this.navigateTo('/wikipedia')
         },
         {
+          label: 'Jeopardy',
+          icon: 'pi pi-table',
+          command: () => this.navigateTo('/jeopardy')
+        },
+        {
           label: 'Sigma',
           icon: 'pi pi-cog',
           visible: () => this.$store.getters['user/isAdmin'],

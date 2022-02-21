@@ -4,22 +4,15 @@
       <div class="p-lg-2"></div>
       <Card class="card p-lg-4">
         <template #header>
-          <img src="../assets/wikipedia.jpg" class="header" alt="wikipedia">
+
         </template>
         <template #title>
-          Placeri Informative
+          Placeri Curioase
         </template>
         <template #content>
-          <div class="p-fluid" v-if="this.messageReceived()">
-            <label>Link-ul de start:</label> <a v-bind:href="fromUrl" target="_blank">Link de start</a>
-
-            <br><br>
-            <label>Aici trebuie sa ajungi:</label> {{ this.toPage }}
-          </div>
-          <div v-else>Inca nu s-a dat startul.</div>
         </template>
         <template #footer>
-          <Button class="button" v-if="this.messageReceived()" label="GATA SEFU'" @click="finish()"/>
+          <Button class="button" v-if="this.messageReceived()" label="STIU EU DOMNU'" @click="finish()"/>
         </template>
       </Card>
 
@@ -35,7 +28,7 @@ import Stomp from "webstomp-client";
 import ReactionTimesRanking from "@/components/ReactionTimesRanking";
 
 export default {
-  name: "Wikipedia",
+  name: "Jeopardy",
   components: {ReactionTimesRanking},
   data() {
     return {

@@ -23,11 +23,13 @@ import TeamRegistration from "@/components/TeamRegistration";
 import Wikipedia from "@/components/Wikipedia";
 import AdminDashboard from "@/components/AdminDashboard";
 import WikipediaAdmin from "@/components/WikipediaAdmin";
+import Jeopardy from "@/components/Jeopardy";
 
 const routes = [
     {path: '/', component: Home},
     {path: '/teams', component: TeamRegistration},
     {path: '/wikipedia', component: Wikipedia},
+    {path: '/jeopardy', component: Jeopardy},
     {
         path: '/sigma', component: AdminDashboard,
         children: [
