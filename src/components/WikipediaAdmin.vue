@@ -50,7 +50,7 @@ export default {
       );
     },
     sendMessage() {
-      this.stompClient.send('/wikipedia', JSON.stringify({"fromUrl": this.fromUrl, "toPage": this.toPage}));
+      this.stompClient.send('/ws/wikipedia', JSON.stringify({"fromUrl": this.fromUrl, "toPage": this.toPage}));
     }
   },
   mounted() {
